@@ -147,6 +147,8 @@ class Runner:
             weight_sum = render_out['weight_sum']
             bias_loss = render_out['bias_loss']
             feat_loss = render_out['feat_loss']
+            ncc_cost = render_out['ncc_cost']
+            inside_sphere = render_out['mid_inside_sphere']
 
             # Loss
             color_error = (color_fine - true_rgb) * mask
@@ -160,12 +162,14 @@ class Runner:
             bias_loss = self.get_param_in_phase(self.bias_weights, train_phase) * bias_loss
             feat_loss = self.get_param_in_phase(self.feat_weights, train_phase) * feat_loss
             
+            ncc_loss = 0.5 * (ncc_cost.sum(dim=0) / (inside_sphere.sum(dim=0) + 1e-8)).squeeze(-1)
             
             loss = color_fine_loss +\
                    eikonal_loss * self.igr_weight +\
                    mask_loss * self.mask_weight+\
                     bias_loss+\
-                    feat_loss
+                    feat_loss+\
+                    ncc_loss
             self.optimizer.zero_grad()
             loss.backward()
             self.optimizer.step()
@@ -177,6 +181,7 @@ class Runner:
             self.writer.add_scalar('Loss/eikonal_loss', eikonal_loss, self.iter_step)
             self.writer.add_scalar('Loss/bias_loss', bias_loss, self.iter_step)
             self.writer.add_scalar('Loss/feat_loss', feat_loss, self.iter_step)
+            self.writer.add_scalar('Loss/ncc_loss', ncc_loss, self.iter_step)
             self.writer.add_scalar('Statistics/s_val', s_val.mean(), self.iter_step)
             self.writer.add_scalar('Statistics/cdf', (cdf_fine[:, :1] * mask).sum() / mask_sum, self.iter_step)
             self.writer.add_scalar('Statistics/weight_max', (weight_max * mask).sum() / mask_sum, self.iter_step)
