@@ -1,9 +1,8 @@
 # Depth-NeuS
+> contact me: click [here](https://hq0709.github.io/about/)
 
-> By [Hanqi Jiang](https://hq0709.github.io/)
 
 ![compare](image/compare.png)
-
 
 ### Data preparation
 The data (from scannet) is organized as follows:
