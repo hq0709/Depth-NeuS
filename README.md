@@ -61,6 +61,7 @@ If you use the code, please cite the following paper:
 @article{jiang2023depthneus,
   title={Depth-NeuS: Neural Implicit Surfaces Learning for Multi-view Reconstruction Based on Depth Information Optimization},
   author={Hanqi Jiang, Cheng Zeng, Runnan Chen, Shuai Liang, Yinhe Han, Yichao Gao, Conglin Wang},
+  publisher={arxiv},
   year={2023}
 }
 ```
