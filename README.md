@@ -1,5 +1,5 @@
 # Depth-NeuS
-> contact me: click [here](https://hq0709.github.io/about/)
+> Contact author: click [here](https://hq0709.github.io/about/)
 
 
 ![compare](image/compare.png)
