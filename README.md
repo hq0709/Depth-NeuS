@@ -58,9 +58,11 @@ python ./exp_evaluation.py --mode eval_3D_mesh_metrics
 If you use the code, please cite the following paper:
 ```
 @article{jiang2023depthneus,
-  title={Depth-NeuS: Neural Implicit Surfaces Learning for Multi-view Reconstruction Based on Depth Information Optimization},
-  author={Hanqi Jiang, Cheng Zeng, Runnan Chen, Shuai Liang, Yinhe Han, Yichao Gao, Conglin Wang},
-  publisher={arxiv},
-  year={2023}
+      title={Depth-NeuS: Neural Implicit Surfaces Learning for Multi-view Reconstruction Based on Depth Information Optimization}, 
+      author={Hanqi Jiang and Cheng Zeng and Runnan Chen and Shuai Liang and Yinhe Han and Yichao Gao and Conglin Wang},
+      year={2023},
+      eprint={2303.17088},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
